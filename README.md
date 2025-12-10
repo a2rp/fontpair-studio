@@ -47,8 +47,8 @@ Scroll through full-screen slides, filter by use-case or mood, and copy ready-to
 
 ## Live demo & repo
 
--   **Live demo:** `https://a2rp.github.io/fontpair-studio`
--   **Repository:** `https://github.com/a2rp/fontpair-studio`
+-   **Live demo:** [a2rp.github.io/fontpair-studio](https://a2rp.github.io/fontpair-studio)
+-   **Repository:** [github.com/a2rp/fontpair-studio](https://github.com/a2rp/fontpair-studio)
 
 ---
 
@@ -131,4 +131,4 @@ If my projects, tools or tutorials help you, you can support me:
 -   **PayPal:** https://paypal.me/a2rpdev
 -   **UPI:** `ash.ranjan09-1@okhdfcbank`
 
-![alt text](public/images/upi-qr.png)
+<img src="public/images/upi-qr.png" alt="UPI QR" style="max-width:150px;" />
