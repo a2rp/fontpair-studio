@@ -1,0 +1,165 @@
+/* src/index.css */
+
+/* ===== Reset ===== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Make sure base elements stretch correctly */
+html,
+body,
+#root {
+    min-height: 100%;
+}
+
+/* ===== Base layout / body ===== */
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    /* Direct colors (no theme vars) */
+    background-color: #050509;
+    color: #b3b7c8;
+
+    scroll-behavior: smooth !important;
+}
+
+/* Root wrapper inherits colors */
+#root {
+    background-color: inherit;
+    color: inherit;
+}
+
+/* ===== Typography ===== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+p,
+span,
+small,
+label,
+li {
+    color: #b3b7c8;
+}
+
+small {
+    font-size: 11px;
+    color: #7c8197;
+}
+
+/* Text selection */
+::selection {
+    background-color: rgba(110, 167, 255, 0.35);
+    color: #ffffff;
+}
+
+/* ===== Links ===== */
+
+a {
+    color: #6ea7ff;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #9ac2ff;
+    text-decoration: underline;
+}
+
+/* ===== Basic elements ===== */
+
+hr {
+    border: 0;
+    border-top: 1px solid #262a3a;
+    margin: 12px 0;
+}
+
+code,
+pre {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #181b26;
+    color: #f0f4ff;
+}
+
+/* ===== Form controls ===== */
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 6px 8px;
+
+    background-color: #10121b;
+    color: #e1e5f5;
+    border: 1px solid #262a3a;
+    border-radius: 4px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #7c8197;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #f15a24;
+    box-shadow: 0 0 0 2px rgba(241, 90, 36, 0.3);
+}
+
+/* ===== Buttons ===== */
+
+button,
+input[type="button"],
+input[type="submit"] {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    background-color: #f15a24;
+    color: #ffffff;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #ff6a1a;
+    color: #ffffff;
+}
+
+/* Disabled state */
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
