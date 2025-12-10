@@ -131,4 +131,4 @@ If my projects, tools or tutorials help you, you can support me:
 -   **PayPal:** https://paypal.me/a2rpdev
 -   **UPI:** `ash.ranjan09-1@okhdfcbank`
 
-<img src="public/images/upi-qr.png" alt="UPI QR" style="max-width:150px;" />
+<img src="public/images/upi-qr.png" alt="UPI QR" width="160" />
