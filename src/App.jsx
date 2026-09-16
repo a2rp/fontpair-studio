@@ -28,7 +28,7 @@ const App = () => {
     React.useEffect(() => {
         try {
             localStorage.setItem("fps_theme", theme);
-        } catch { }
+        } catch { /* Storage may be unavailable in restricted browsers. */ }
     }, [theme]);
 
     const [shortlistIds, setShortlistIds] = useState(() => {
@@ -43,7 +43,7 @@ const App = () => {
     React.useEffect(() => {
         try {
             localStorage.setItem("fps_shortlist", JSON.stringify(shortlistIds));
-        } catch { }
+        } catch { /* Storage may be unavailable in restricted browsers. */ }
     }, [shortlistIds]);
 
     const [confirmState, setConfirmState] = useState({

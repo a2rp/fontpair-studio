@@ -1,10 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const floatSoft = keyframes`
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-`;
+import styled from "styled-components";
 
 export const Styled = {
     Page: styled.main`
