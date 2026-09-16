@@ -66,7 +66,7 @@ const Footer = () => {
                         <a
                             href="https://www.ashishranjan.net"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                         >
                             ashishranjan.net
                         </a>
@@ -75,7 +75,7 @@ const Footer = () => {
                         <a
                             href="http://www.ashishranjan.in"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                         >
                             ashishranjan.in
                         </a>
@@ -161,7 +161,7 @@ const Footer = () => {
 
             <div className="footerBottom">
                 <div>
-                    <span>© {year} | Ashish Ranjan</span>
+                    <span>Copyright &copy; {year} | Ashish Ranjan</span>
                 </div>
 
                 <div>
