@@ -27,7 +27,6 @@ export const Styled = {
 
         .scrollTopButton:hover {
             background: #ff6a1a;
-            transform: translateY(-1px);
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.75);
         }
 

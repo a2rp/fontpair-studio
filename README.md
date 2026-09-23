@@ -1,160 +1,41 @@
 # FontPair Studio
 
-A small React-based playground to explore practical **Google Font pairings** for blogs, portfolios, SaaS dashboards, documentation and more.  
-Scroll through full-screen slides, filter by use-case or mood, and copy ready-to-use CSS snippets for your next project.
+FontPair Studio is a React playground for exploring practical Google Font combinations. Search and filter curated pairings, preview them in real interface-style layouts, copy CSS snippets, open the fonts, and save favourites locally.
 
-> "Pick a pairing, copy the CSS, ship the layout."
-
----
-
-![alt text](image.png)
-
-![alt text](image-1.png)
-
-![alt text](image-2.png)
-
-![alt text](image-3.png)
-
-![alt text](image-4.png)
-
-![alt text](image-5.png)
-
-![alt text](image-6.png)
-
-![alt text](image-7.png)
-
-![alt text](image-8.png)
-
-![alt text](image-9.png)
-
-![alt text](image-10.png)
-
-![alt text](image-11.png)
-
-![alt text](image-12.png)
-
-![alt text](image-13.png)
-
-![alt text](image-14.png)
-
-![alt text](image-15.png)
-
-![alt text](image-16.png)
-
-![alt text](image-17.png)
-
----
-
-## Live demo & repo
-
--   **Live demo:** [a2rp.github.io/fontpair-studio](https://a2rp.github.io/fontpair-studio)
--   **Repository:** [github.com/a2rp/fontpair-studio](https://github.com/a2rp/fontpair-studio)
-
----
+![FontPair Studio screenshot](screenshot.png)
 
 ## Features
 
--   🎯 **Focused on real-world use-cases**  
-    Each font pair is tagged with use-cases (blog, portfolio, SaaS, docs, dashboard, etc.) and moods (elegant, techy, calm, bold…).
-
--   🖼️ **Full-screen typography slides**  
-    Scroll through 100vh sections that showcase each pairing with a hero-style heading and supporting text.
-
--   🔍 **Search & filter toolbar**
-
-    -   Search by font name or pair
-    -   Filter by **use-case**
-    -   Filter by **mood**
-
--   📌 **Shortlist your favourites**
-
-    -   `Add to shortlist` pins the pair for quick reference
-    -   Shortlist is stored in `localStorage` (`fps_shortlist`)
-    -   Remove action uses a custom confirm modal
-
--   📋 **Copy-paste CSS in one click**  
-    `Copy CSS` copies a small snippet that wires up heading + body fonts with sensible fallbacks.
-
--   🔗 **Google Fonts shortcuts**  
-    `Google Fonts` opens the heading and body fonts directly on fonts.google.com.
-
--   ⬆️ **UX helpers**
-
-    -   Smooth scroll to sections
-    -   Scroll-to-top floating button
-    -   "Shortlist" jump button to quickly reach saved pairs
-
--   🧾 **Footer with creator details**
-    -   About Ashish Ranjan (Full-Stack Web Developer)
-    -   Website links, social links (GitHub, LinkedIn, Facebook, YouTube)
-    -   YouTube **Subscribe** strip styled like a modern channel card
-    -   Optional UPI QR support card
-    -   Auto-rendered **Last updated** timestamp using build / commit ISO time
-
----
+- Search font pairs by name or font family
+- Filter by use-case and mood
+- Full-screen typography previews with local shortlist storage
+- Copy ready-to-use CSS and open fonts on Google Fonts
+- Responsive fixed header, icon footer, theme toggle, and go-to-top button
 
 ## Tech stack
 
--   [React](https://reactjs.org/) (Vite)
--   [Vite](https://vitejs.dev/)
--   [styled-components](https://styled-components.com/)
--   LocalStorage for shortlist persistence
--   Vanilla JS utilities for smooth scrolling & clipboard
+React, Vite, styled-components, React Icons, and browser localStorage.
 
----
-
-## Getting started
+## Run locally
 
 ```bash
-git clone https://github.com/a2rp/fontpair-studio.git
-cd fontpair-studio
 npm install
 npm run dev
 ```
 
-📜 License
+## Build and deploy
 
----
+```bash
+npm run lint
+npm run build
+npm run deploy
+```
 
-This project is licensed under the MIT License. You are free to use, modify, and distribute this project with attribution.
-
-## ⭐ Support
-
-If you like this project, please ⭐ star the repository!
-
----
-
-## ❤️ Support My Work
-
-If my projects, tools or tutorials help you, you can support me:
-
--   **PayPal:** https://paypal.me/a2rpdev
--   **UPI:** `ash.ranjan09-1@okhdfcbank`
-
-<img src="public/images/upi-qr.png" alt="UPI QR" width="300" />
+Live demo: [a2rp.github.io/fontpair-studio](https://a2rp.github.io/fontpair-studio/)
 
 ## Links
 
 - Portfolio: [https://www.ashishranjan.net](https://www.ashishranjan.net)
-- GitHub: [https://github.com/a2rp](https://github.com/a2rp)
-- CodePen: [https://codepen.io/ash1198](https://codepen.io/ash1198)
-- LinkedIn: [https://www.linkedin.com/in/aashishranjan](https://www.linkedin.com/in/aashishranjan)
-- Facebook: [https://www.facebook.com/theash.ashish/](https://www.facebook.com/theash.ashish/)
-- YouTube: [https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1](https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1)
-- Email: [ash.ranjan09@gmail.com](mailto:ash.ranjan09@gmail.com)
-
-## Support
-
-- Support: [https://a2rp-donation-page.netlify.app/](https://a2rp-donation-page.netlify.app/)
-- Buy Me A Coffee: [https://buymeacoffee.com/a2rp](https://buymeacoffee.com/a2rp)
-- Patreon: [https://patreon.com/a2rp](https://patreon.com/a2rp)
-<!-- Project links -->
-
-## Links
-
-- Live: [https://a2rp.github.io/fontpair-studio/](https://a2rp.github.io/fontpair-studio/)
-- Repository: [https://github.com/a2rp/fontpair-studio](https://github.com/a2rp/fontpair-studio)
-- Portfolio: [https://www.ashishranjan.net/](https://www.ashishranjan.net/)
 - GitHub: [https://github.com/a2rp](https://github.com/a2rp)
 - CodePen: [https://codepen.io/ash1198](https://codepen.io/ash1198)
 - LinkedIn: [https://www.linkedin.com/in/aashishranjan](https://www.linkedin.com/in/aashishranjan)

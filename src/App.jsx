@@ -5,6 +5,7 @@ import { fontPairs } from "./data/fontPairs";
 import Hero from "./components/hero";
 import ScrollTopButton from "./components/scrollTopButton";
 import Footer from "./components/footer";
+import Header from "./components/header";
 import { smoothScrollTo } from "./utils/smoothScroll";
 
 const App = () => {
@@ -178,8 +179,10 @@ body, p, span, li {
 
     return (
         <Styled.App
+            id="top"
             className={theme === "light" ? "theme-light" : "theme-dark"}
         >
+            <Header />
             {/* Full-screen hero */}
             <Hero />
 
@@ -378,11 +381,11 @@ body, p, span, li {
                 </div>
 
                 {/* Shortlist below all slides */}
-                <section className="shortlistSection">
+                <section className="shortlistSection" id="shortlist">
                     <div className="shortlistHeader">
                         <h3 className="shortlistTitle">Shortlist</h3>
                         <p className="shortlistHint">
-                            Use the “Add to shortlist” action to pin your
+                            Use the "Add to shortlist" action to pin your
                             favourite font combinations.
                         </p>
                     </div>
@@ -404,7 +407,7 @@ body, p, span, li {
                                             {pair.name}
                                         </span>
                                         <span className="shortlistMeta">
-                                            {pair.useCases.join(", ")} ·{" "}
+                                            {pair.useCases.join(", ")} -{" "}
                                             {pair.moods.join(", ")}
                                         </span>
                                     </div>

@@ -214,7 +214,7 @@ const Resources = () => {
                 <TbBook2 className="heroIcon" />
                 <h1 className="heroTitle">Resources</h1>
                 <p className="heroTagline">
-                    Everything you need to grow — from learning to local
+                    Everything you need to grow - from learning to local
                     support.
                     <TbSparkles className="sparkIcon" />
                 </p>

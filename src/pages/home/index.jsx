@@ -152,7 +152,7 @@ const Home = () => {
                 </div>
 
                 <p className="joinNote">
-                    New members can walk into any meetup — no prior experience
+                    New members can walk into any meetup - no prior experience
                     needed. To get the full details and reminders, join the
                     community through the buttons below.
                 </p>

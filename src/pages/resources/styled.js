@@ -121,8 +121,7 @@ export const Styled = {
 
             &:hover {
                 color: var(--color-secondary);
-                transform: translateY(-1px);
-            }
+                }
         }
 
         /* DOWNLOADS */
@@ -411,7 +410,6 @@ export const Styled = {
 
         .pdfBtn:hover {
             background: var(--color-primary);
-            transform: translateY(-1px);
             box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
         }
 

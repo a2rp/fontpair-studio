@@ -1,20 +1,5 @@
 // src/components/hero/styled.js
-import styled, { keyframes } from "styled-components";
-
-const floatGlow = keyframes`
-    0% {
-        transform: translate3d(-20px, -10px, 0) scale(1);
-        opacity: 0.45;
-    }
-    50% {
-        transform: translate3d(20px, 10px, 0) scale(1.08);
-        opacity: 0.75;
-    }
-    100% {
-        transform: translate3d(-20px, -10px, 0) scale(1);
-        opacity: 0.45;
-    }
-`;
+import styled from "styled-components";
 
 export const Styled = {
     Hero: styled.section`
@@ -54,7 +39,6 @@ export const Styled = {
             mix-blend-mode: screen;
             opacity: 0.6;
             filter: blur(2px);
-            animation: ${floatGlow} 22s ease-in-out infinite alternate;
             pointer-events: none;
             z-index: 0;
         }
@@ -141,7 +125,6 @@ export const Styled = {
         }
 
         .heroButton:hover {
-            transform: translateY(-1px);
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8);
         }
 

@@ -14,7 +14,7 @@ const BENEFITS = [
     {
         icon: TbUsersGroup,
         title: "Community Access",
-        desc: "Join hundreds of women in tech from Jamshedpur—share ideas, collaborate, and grow.",
+        desc: "Join hundreds of women in tech from Jamshedpur-share ideas, collaborate, and grow.",
     },
     {
         icon: TbBook2,

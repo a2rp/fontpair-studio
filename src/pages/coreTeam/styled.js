@@ -190,8 +190,7 @@ export const Styled = {
             &:hover {
                 background: var(--color-primary);
                 color: var(--color-primary-text);
-                transform: translateY(-1px);
-            }
+                }
         }
 
         .modalHeader {
@@ -288,8 +287,7 @@ export const Styled = {
                 background: var(--color-secondary);
                 border-color: var(--color-secondary);
                 color: var(--color-secondary-text);
-                transform: translateY(-1px);
-            }
+                }
         }
 
         .modalBtn.ghost {
@@ -301,8 +299,7 @@ export const Styled = {
                 background: var(--color-bg-alt);
                 border-color: var(--color-primary);
                 color: var(--color-heading);
-                transform: translateY(-1px);
-            }
+                }
         }
     `,
 };

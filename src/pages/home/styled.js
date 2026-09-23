@@ -314,8 +314,7 @@ export const Styled = {
                 border-color: var(--color-secondary);
                 color: var(--color-secondary-text);
                 box-shadow: var(--shadow-soft);
-                transform: translateY(-1px);
-            }
+                }
         }
 
         .ghostCta {
@@ -327,8 +326,7 @@ export const Styled = {
                 background-color: var(--color-surface-soft);
                 border-color: var(--color-link);
                 box-shadow: var(--shadow-soft);
-                transform: translateY(-1px);
-            }
+                }
         }
     `,
 };

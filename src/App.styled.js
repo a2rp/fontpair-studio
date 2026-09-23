@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Styled = {
     App: styled.div`
         min-height: 100vh;
+        padding-top: 68px;
         background: #050509;
         color: #e1e5f5;
         padding-bottom: 100px;
@@ -151,7 +152,6 @@ export const Styled = {
             background: #f15a24;
             border-color: #f15a24;
             color: #ffffff;
-            transform: translateY(-1px);
         }
 
         .themeToggle {
@@ -465,7 +465,6 @@ export const Styled = {
 
         .confirmButton--secondary:hover {
             background: #181b26;
-            transform: translateY(-1px);
         }
 
         .confirmButton--danger {
@@ -476,7 +475,6 @@ export const Styled = {
             background: #f15a24;
             border-color: #f15a24;
             color: #ffffff;
-            transform: translateY(-1px);
         }
 
         /* ===== Toast ===== */
@@ -509,7 +507,7 @@ export const Styled = {
             font-size: 11px;
             padding: 6px 14px;
             border-radius: 999px;
-            border: 1px solid #f00; /* debug border tumne rakha tha */
+            border: 1px solid #262a3a;
             background: #10121b;
             color: #e1e5f5;
             text-transform: uppercase;
@@ -523,7 +521,6 @@ export const Styled = {
             background: #f15a24;
             border-color: #f15a24;
             color: #ffffff;
-            transform: translateY(-1px);
         }
 
         @media (max-width: 600px) {

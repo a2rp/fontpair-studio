@@ -78,7 +78,7 @@ const TEAM = [
         img: imgPriya,
         year: "3rd year, Mech",
         focus: "Event experience, offline logistics, decor",
-        bio: "Designs end-to-end event flow—from registrations to feedback and photos.",
+        bio: "Designs end-to-end event flow-from registrations to feedback and photos.",
         funFact: "Can turn any empty classroom into an event space in 20 minutes.",
     },
 ];

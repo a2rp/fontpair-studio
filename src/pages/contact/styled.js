@@ -124,7 +124,6 @@ export const Styled = {
             background: var(--color-primary);
             border-color: var(--color-primary);
             color: var(--color-primary-text);
-            transform: translateY(-1px);
             box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
 
             .pillIcon {

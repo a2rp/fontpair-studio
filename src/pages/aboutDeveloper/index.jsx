@@ -250,7 +250,7 @@ const AboutDeveloper = () => {
                     <div className="infoCard">
                         <h3 className="cardTitle">About this project</h3>
                         <p className="cardText">
-                            JWIT started as a freelance reference — a community
+                            JWIT started as a freelance reference - a community
                             site for a women-in-tech group in Jamshedpur. This
                             version is a refactored, cleaner React + Vite
                             implementation with sliders, modals, counters,
@@ -304,7 +304,7 @@ const AboutDeveloper = () => {
 
                 <p className="supportNote">
                     If you liked this site or it helped you, you can support my
-                    work using the UPI QR on top — totally optional, always
+                    work using the UPI QR on top - totally optional, always
                     appreciated.
                 </p>
             </section>
