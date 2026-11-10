@@ -8,7 +8,8 @@ FontPair Studio is a React playground for exploring practical Google Font combin
 
 - Search font pairs by name or font family
 - Filter by use-case and mood
-- Full-screen typography previews with local shortlist storage
+- Full-screen heading and body previews using the actual Google Fonts, loaded as each pair approaches the viewport
+- Save favourite pairs to a local shortlist
 - Copy ready-to-use CSS and open fonts on Google Fonts
 - Responsive fixed header, icon footer, theme toggle, and go-to-top button
 

@@ -204,7 +204,7 @@ export const fontPairs = [
             "A slightly experimental tech pairing that shines in dashboards, analytics tools and landing pages for dev tools.",
         // backgroundColor: "#050816",
         backgroundColor: "#aaa",
-        textColor: "#ffffff",
+        textColor: "#171923",
         backgroundImage:
             "linear-gradient(135deg, #020617 0%, #060826 35%, #020617 100%)",
         googleFonts: {
@@ -243,7 +243,7 @@ export const fontPairs = [
             "A clear UI sans for narrative content and a crisp mono for code snippets, great for dev docs and landing pages.",
         // backgroundColor: "#0a1018",
         backgroundColor: "#ffffff",
-        textColor: "#ffffff",
+        textColor: "#1b1d2a",
         backgroundImage:
             "linear-gradient(145deg, #020617 0%, #111827 55%, #020617 100%)",
         googleFonts: {

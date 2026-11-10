@@ -1,5 +1,6 @@
 {
-    "name": "frontend",
+    "name": "fontpair-studio",
+    "description": "Curated Google Font pair previews with live typography, filters, CSS snippets, and saved favourites.",
     "private": true,
     "version": "0.0.0",
     "type": "module",

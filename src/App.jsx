@@ -1,12 +1,15 @@
 // src/App.jsx
-import React, { useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { Styled } from "./App.styled";
 import { fontPairs } from "./data/fontPairs";
+import FontPairPreview from "./components/fontPairPreview";
 import Hero from "./components/hero";
 import ScrollTopButton from "./components/scrollTopButton";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import { smoothScrollTo } from "./utils/smoothScroll";
+
+const knownPairIds = new Set(fontPairs.map((pair) => pair.id));
 
 const App = () => {
     const [search, setSearch] = useState("");
@@ -16,7 +19,7 @@ const App = () => {
     // === Theme (dark / light) ===
     const [theme, setTheme] = useState(() => {
         try {
-            return localStorage.getItem("fps_theme") || "dark";
+            return localStorage.getItem("fps_theme") === "light" ? "light" : "dark";
         } catch {
             return "dark";
         }
@@ -26,7 +29,7 @@ const App = () => {
         setTheme((prev) => (prev === "dark" ? "light" : "dark"));
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         try {
             localStorage.setItem("fps_theme", theme);
         } catch { /* Storage may be unavailable in restricted browsers. */ }
@@ -35,13 +38,16 @@ const App = () => {
     const [shortlistIds, setShortlistIds] = useState(() => {
         try {
             const stored = localStorage.getItem("fps_shortlist");
-            return stored ? JSON.parse(stored) : [];
+            const parsed = stored ? JSON.parse(stored) : [];
+            return Array.isArray(parsed)
+                ? [...new Set(parsed.filter((id) => typeof id === "string" && knownPairIds.has(id)))]
+                : [];
         } catch {
             return [];
         }
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         try {
             localStorage.setItem("fps_shortlist", JSON.stringify(shortlistIds));
         } catch { /* Storage may be unavailable in restricted browsers. */ }
@@ -59,6 +65,18 @@ const App = () => {
     });
 
     const toastTimerRef = useRef(null);
+    const removeTriggerRef = useRef(null);
+
+    useEffect(() => {
+        if (!confirmState.open && removeTriggerRef.current) {
+            if (removeTriggerRef.current.isConnected) {
+                removeTriggerRef.current.focus();
+            } else {
+                document.getElementById("shortlist-title")?.focus();
+            }
+            removeTriggerRef.current = null;
+        }
+    }, [confirmState.open]);
 
     const showToast = (message) => {
         setToast({ open: true, message });
@@ -116,7 +134,7 @@ const App = () => {
         closeRemoveConfirm();
     };
 
-    const handleCopyCss = (pair) => {
+    const handleCopyCss = async (pair) => {
         const cssSnippet = `
 /* FontPair Studio suggestion: ${pair.name} */
 
@@ -129,10 +147,33 @@ body, p, span, li {
 }
         `.trim();
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(cssSnippet).catch(() => { });
+        try {
+            if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+            await navigator.clipboard.writeText(cssSnippet);
+            showToast("CSS copied to clipboard");
+        } catch {
+            showToast("Copy failed. Check browser clipboard permissions and try again.");
         }
-        showToast("CSS snippet copied");
+    };
+
+    const handleConfirmKeyDown = (event) => {
+        if (event.key === "Escape") {
+            closeRemoveConfirm();
+            return;
+        }
+
+        if (event.key !== "Tab") return;
+        const buttons = event.currentTarget.querySelectorAll("button:not(:disabled)");
+        const firstButton = buttons[0];
+        const lastButton = buttons[buttons.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstButton) {
+            event.preventDefault();
+            lastButton.focus();
+        } else if (!event.shiftKey && document.activeElement === lastButton) {
+            event.preventDefault();
+            firstButton.focus();
+        }
     };
 
     const handleOpenFonts = (pair) => {
@@ -282,83 +323,16 @@ body, p, span, li {
                     </div>
 
                     <div className="pairsGrid">
-                        {filteredPairs.map((pair, index) => {
-                            const isImageVariant = index % 2 === 1;
-
-                            const cardClassName = [
-                                "pairCard",
-                                isImageVariant
-                                    ? "pairCard--image"
-                                    : "pairCard--solid",
-                            ]
-                                .filter(Boolean)
-                                .join(" ");
-
-                            const cardStyle = {
-                                "--pair-bg-color":
-                                    pair.backgroundColor || "",
-                                "--pair-text-color": pair.textColor || "",
-                                "--pair-bg-image": pair.backgroundImage || "",
-                            };
-
-                            return (
-                                <article
-                                    key={pair.id}
-                                    className={cardClassName}
-                                    style={cardStyle}
-                                >
-                                    <div className="pairContent">
-                                        <header className="pairCardHeader">
-                                            <p className="pairFontsLabel">
-                                                {pair.headingFont},{" "}
-                                                {pair.bodyFont}
-                                            </p>
-                                        </header>
-
-                                        <div className="pairPreview">
-                                            <h2 className="previewHeading">
-                                                {pair.sampleHeading}
-                                            </h2>
-                                            <p className="previewBody">
-                                                {pair.sampleBody}
-                                            </p>
-                                        </div>
-
-                                        <footer className="pairFooter">
-                                            <button
-                                                type="button"
-                                                className="linkButton"
-                                                onClick={() =>
-                                                    handleCopyCss(pair)
-                                                }
-                                            >
-                                                Copy CSS
-                                            </button>
-                                            <button
-                                                type="button"
-                                                className="linkButton"
-                                                onClick={() =>
-                                                    handleOpenFonts(pair)
-                                                }
-                                            >
-                                                Google Fonts
-                                            </button>
-                                            <button
-                                                type="button"
-                                                className="linkButton"
-                                                onClick={() =>
-                                                    handleAddToShortlist(
-                                                        pair.id
-                                                    )
-                                                }
-                                            >
-                                                Add to shortlist
-                                            </button>
-                                        </footer>
-                                    </div>
-                                </article>
-                            );
-                        })}
+                        {filteredPairs.map((pair) => (
+                            <FontPairPreview
+                                key={pair.id}
+                                pair={pair}
+                                index={fontPairs.indexOf(pair)}
+                                onCopyCss={handleCopyCss}
+                                onOpenFonts={handleOpenFonts}
+                                onAddToShortlist={handleAddToShortlist}
+                            />
+                        ))}
 
                         {filteredPairs.length === 0 && (
                             <article className="pairCard pairCard--placeholder">
@@ -383,7 +357,13 @@ body, p, span, li {
                 {/* Shortlist below all slides */}
                 <section className="shortlistSection" id="shortlist">
                     <div className="shortlistHeader">
-                        <h3 className="shortlistTitle">Shortlist</h3>
+                        <h3
+                            className="shortlistTitle"
+                            id="shortlist-title"
+                            tabIndex={-1}
+                        >
+                            Shortlist
+                        </h3>
                         <p className="shortlistHint">
                             Use the "Add to shortlist" action to pin your
                             favourite font combinations.
@@ -414,7 +394,10 @@ body, p, span, li {
                                     <button
                                         type="button"
                                         className="shortlistRemove"
-                                        onClick={() => openRemoveConfirm(pair)}
+                                        onClick={(event) => {
+                                            removeTriggerRef.current = event.currentTarget;
+                                            openRemoveConfirm(pair);
+                                        }}
                                     >
                                         Remove
                                     </button>
@@ -433,9 +416,13 @@ body, p, span, li {
                 >
                     <div
                         className="confirmDialog"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="confirm-title"
+                        onKeyDown={handleConfirmKeyDown}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h4 className="confirmTitle">
+                        <h4 className="confirmTitle" id="confirm-title">
                             Remove from shortlist?
                         </h4>
                         <p className="confirmText">
@@ -443,7 +430,7 @@ body, p, span, li {
                             <span className="confirmFontName">
                                 {confirmState.targetName}
                             </span>{" "}
-                            from your shortlist for this session.
+                            from your saved shortlist.
                         </p>
 
                         <div className="confirmActions">
@@ -451,6 +438,7 @@ body, p, span, li {
                                 type="button"
                                 className="confirmButton confirmButton--secondary"
                                 onClick={closeRemoveConfirm}
+                                autoFocus
                             >
                                 Cancel
                             </button>
@@ -471,7 +459,14 @@ body, p, span, li {
             {/* Toast */}
             {toast.open && (
                 <div className="toast">
-                    <span className="toastText">{toast.message}</span>
+                    <span
+                        className="toastText"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    >
+                        {toast.message}
+                    </span>
                 </div>
             )}
 

@@ -217,15 +217,17 @@ export const Styled = {
 
         /* Solid slides (flat colour background) */
         .pairCard--solid .pairFontsLabel {
-            color: rgba(0, 0, 0, 0.55);
+            color: var(--pair-text-color, #111111);
+            opacity: 0.7;
         }
 
         .pairCard--solid .previewHeading {
-            color: #111111;
+            color: var(--pair-text-color, #111111);
         }
 
         .pairCard--solid .previewBody {
-            color: #333333;
+            color: var(--pair-text-color, #111111);
+            opacity: 0.82;
         }
 
         /* Gradient / “image-like” slides */
