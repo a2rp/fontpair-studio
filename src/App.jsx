@@ -10,6 +10,12 @@ import Header from "./components/header";
 import { smoothScrollTo } from "./utils/smoothScroll";
 
 const knownPairIds = new Set(fontPairs.map((pair) => pair.id));
+const useCaseFilters = [...new Set(fontPairs.flatMap((pair) => pair.useCases))].sort();
+const moodFilters = [...new Set(fontPairs.flatMap((pair) => pair.moods))].sort();
+const formatFilterLabel = (value) => value
+    .split("-")
+    .map((word) => word === "saas" ? "SaaS" : word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
 const App = () => {
     const [search, setSearch] = useState("");
@@ -97,14 +103,11 @@ const App = () => {
     };
 
     const handleAddToShortlist = (id) => {
-        setShortlistIds((prev) => {
-            if (prev.includes(id)) {
-                showToast("Already in shortlist");
-                return prev;
-            }
-            showToast("Added to shortlist");
-            return [...prev, id];
-        });
+        const alreadyShortlisted = shortlistIds.includes(id);
+        if (!alreadyShortlisted) {
+            setShortlistIds((current) => current.includes(id) ? current : [...current, id]);
+        }
+        showToast(alreadyShortlisted ? "Already in shortlist" : "Added to shortlist");
     };
 
     const handleRemoveFromShortlist = (id) => {
@@ -254,15 +257,10 @@ body, p, span, li {
                             value={useCase}
                             onChange={(e) => setUseCase(e.target.value)}
                         >
-                            <option value="">All</option>
-                            <option value="blog">Blog</option>
-                            <option value="portfolio">Portfolio</option>
-                            <option value="saas">SaaS / Landing</option>
-                            <option value="resume">Resume</option>
-                            <option value="dashboard">Dashboard UI</option>
-                            <option value="documentation">
-                                Documentation
-                            </option>
+                            <option value="">All use-cases</option>
+                            {useCaseFilters.map((value) => (
+                                <option key={value} value={value}>{formatFilterLabel(value)}</option>
+                            ))}
                         </select>
                     </div>
 
@@ -276,18 +274,10 @@ body, p, span, li {
                             value={mood}
                             onChange={(e) => setMood(e.target.value)}
                         >
-                            <option value="">All</option>
-                            <option value="minimal">Minimal</option>
-                            <option value="bold">Bold</option>
-                            <option value="playful">Playful</option>
-                            <option value="elegant">Elegant</option>
-                            <option value="classic">Classic</option>
-                            <option value="modern">Modern</option>
-                            <option value="techy">Techy</option>
-                            <option value="calm">Calm</option>
-                            <option value="refined">Refined</option>
-                            <option value="casual">Casual</option>
-                            <option value="confident">Confident</option>
+                            <option value="">All moods</option>
+                            {moodFilters.map((value) => (
+                                <option key={value} value={value}>{formatFilterLabel(value)}</option>
+                            ))}
                         </select>
                     </div>
                 </div>
